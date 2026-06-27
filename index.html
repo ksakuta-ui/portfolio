@@ -296,10 +296,16 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
 
-    .video-wrapper video {
+    /* iframeのレスポンシブスタイル */
+    .video-wrapper video,
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      border: none;
     }
 
     /* ----------------------
@@ -445,7 +451,7 @@
     }
 
     /* ----------------------
-       Contact & Info Card Section (修正)
+       Contact & Info Card Section
     ----------------------- */
     #contact {
       background-color: var(--bg-main);
@@ -468,23 +474,21 @@
       line-height: 1.8;
     }
 
-    /* ★ コンタクトカードの修正：中央寄せに変更 ★ */
     .contact-card {
       background-color: var(--bg-sub);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 16px;
       padding: 3rem;
       display: flex;
-      flex-direction: column; /* ★縦並びに変更 */
-      align-items: center;    /* ★中央寄せ */
+      flex-direction: column; 
+      align-items: center;    
       justify-content: center;
       max-width: 900px;
       margin: 0 auto 4rem auto;
-      text-align: center;      /* ★テキスト中央寄せ */
+      text-align: center;      
       box-shadow: 0 20px 40px rgba(0,0,0,0.5);
     }
 
-    /* カード内のテキスト要素のスタイル */
     .card-headline {
       font-size: clamp(1.5rem, 3vw, 2rem);
       font-weight: 800;
@@ -497,7 +501,7 @@
       color: rgba(255, 255, 255, 0.85);
       line-height: 1.7;
       margin-bottom: 2rem;
-      text-align: center; /* ★中央寄せ */
+      text-align: center;
     }
 
     .card-desc .blue-text {
@@ -505,9 +509,8 @@
       font-weight: 700;
     }
 
-    /* ★連絡先情報のラッパーを追加 */
     .card-info {
-      text-align: center; /* ★中央寄せ */
+      text-align: center;
     }
 
     .card-info-label {
@@ -541,7 +544,6 @@
       margin-right: 10px;
     }
 
-    /* SNS Links */
     .sns-links {
       display: flex;
       justify-content: center;
@@ -670,19 +672,19 @@
       
       <div class="video-card">
         <div class="video-wrapper">
-          <video src="video1.mp4" controls preload="metadata" poster=""></video>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/jm2Ex5kAzDQ?si=juQPxrW-B54GUUe9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
       </div>
 
       <div class="video-card">
         <div class="video-wrapper">
-          <video src="video2.mp4" controls preload="metadata" poster=""></video>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/dt3Ebi8qYDA?si=iFXjbkxjaTAmWCeS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
       </div>
 
       <div class="video-card">
         <div class="video-wrapper">
-          <video src="video3.mp4" controls preload="metadata" poster=""></video>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/PHR-1QsuYG0?si=K97hBHLzcj1Tv4CA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
       </div>
       
@@ -927,7 +929,7 @@
     });
 
     // ----------------------
-    // Horizontal Scroll & Drag (改良版)
+    // Horizontal Scroll & Drag
     // ----------------------
     const scrollContainer = document.getElementById('scroll-container');
     let isDown = false;
